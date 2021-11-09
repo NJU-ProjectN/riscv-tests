@@ -160,8 +160,8 @@
         .align  6;                                                      \
         .weak stvec_handler;                                            \
         .weak mtvec_handler;                                            \
-        .globl _start;                                                  \
-_start:                                                                 \
+        .globl main;                                                  \
+main:                                                                 \
         /* reset vector */                                              \
         INIT_XREG;                                                      \
         .align 2;
