@@ -31,7 +31,7 @@ Building from repository
 
         $ git clone https://github.com/riscv/riscv-tests
         $ cd riscv-tests
-        $ make ARCH=riscv64-mycpu
+        $ make ARCH=riscv64-npc
 
 The rest of this document describes the format of test programs for the RISC-V
 architecture.

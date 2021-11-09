@@ -161,7 +161,10 @@
         .weak stvec_handler;                                            \
         .weak mtvec_handler;                                            \
         .globl _start;                                                  \
-_start:
+_start:                                                                 \
+        /* reset vector */                                              \
+        INIT_XREG;                                                      \
+        .align 2;
 
 //-----------------------------------------------------------------------
 // End Macro
@@ -175,7 +178,7 @@ _start:
 //-----------------------------------------------------------------------
 
 #define RVTEST_PASS                                                     \
-          li a0, 0;                                                   \
+          li a0, 0xc0ffee;                                                   \
           j halt
         // fence;                                                          \
         // li TESTNUM, 1;                                                  \
@@ -185,7 +188,7 @@ _start:
 
 #define TESTNUM gp
 #define RVTEST_FAIL                                                     \
-          li a0, 1;                                                      \
+          li a0, 0xdeaddead;                                                      \
           j halt
 //         fence;                                                          \
 // 1:      beqz TESTNUM, 1b;                                               \
